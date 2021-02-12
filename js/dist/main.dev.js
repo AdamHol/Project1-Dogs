@@ -25,11 +25,12 @@ function hideMenu() {
   hideMenu.style.transform = "translateX(800px)"; // }
 }
 
-$(document).ready(function () {
+$(function () {
   $(".autoplay").slick({
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000
+    autoplaySpeed: 2000,
+    arrows: false
   });
 });

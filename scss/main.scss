@@ -21,7 +21,6 @@ a {
   background: $header;
   text-align: left;
   border-bottom: 1px solid $light-grey;
-  margin-bottom: 1rem;
 
   &-mail {
     color: $header-title;
@@ -50,6 +49,8 @@ a {
 .nav {
   display: flex;
   justify-content: space-between;
+  padding: 1rem 0;
+  background: $light-grey;
 
   &-logo {
     width: 100px;
@@ -75,7 +76,7 @@ a {
       display: inline-block;
       width: 30px;
       height: 4px;
-      background: $grey;
+      background: $main-orange;
       border-radius: 50px;
       margin-bottom: 2px;
 
@@ -85,7 +86,7 @@ a {
         margin: -8px -15px;
         width: 30px;
         height: 4px;
-        background: $grey;
+        background: $main-orange;
         border-radius: 50px;
       }
 
@@ -95,7 +96,7 @@ a {
         margin: 8px -15px;
         width: 30px;
         height: 4px;
-        background: $grey;
+        background: $main-orange;
         border-radius: 50px;
       }
     }
@@ -111,21 +112,23 @@ a {
     height: 100vh;
     transform: translateX(800px);
     transition: 2s;
+    z-index: 1;
 
     &-close {
       height: 50px;
       width: 50px;
       margin-left: calc(100% - 50px);
       border: none;
-      background: rgba(0, 0, 0, 0.1);
+      background: transparent;
       margin-bottom: 1rem;
+      outline: none;
 
       span {
         margin-bottom: 2px;
         display: inline-block;
         width: 30px;
         height: 4px;
-        background: $grey;
+        background: $main-orange;
         border-radius: 50px;
         transform: rotate(45deg);
 
@@ -135,7 +138,7 @@ a {
           margin: 0px -15px;
           width: 30px;
           height: 4px;
-          background: $grey;
+          background: $main-orange;
           border-radius: 50px;
           transform: rotate(90deg);
         }
@@ -174,4 +177,55 @@ a {
       }
     }
   }
+}
+
+#main {
+  .main-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    .main-pic {
+      max-width: 1200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .main-button {
+      position: absolute;
+      right: 20px;
+      bottom: 40px;
+      width: 100px;
+      height: 40px;
+      border-radius: 30px;
+      background: $light-grey;
+      color: $main-orange;
+      font-weight: bold;
+      font-size: 1rem;
+      outline: none;
+    }
+  }
+}
+
+#about {
+  margin: 1rem auto;
+  padding: 15px;
+}
+
+.slider {
+  display: flex;
+
+  .item {
+    width: 350px;
+    margin-bottom: 1rem;
+
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+  }
+}
+
+#how-to {
+  padding: 15px;
 }

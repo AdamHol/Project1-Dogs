@@ -1,3 +1,5 @@
+// HIDE / SHOW MENU (burger button)
+
 const burger = document.getElementById("burger");
 burger.addEventListener("click", showMenu);
 
@@ -23,3 +25,13 @@ function hideMenu() {
   hideMenu.style.transform = "translateX(800px)";
   // }
 }
+
+$(function () {
+  $(".autoplay").slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+  });
+});
