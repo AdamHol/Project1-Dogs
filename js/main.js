@@ -29,46 +29,66 @@ $(function () {
   });
 });
 
-// show description for every picture
+// DOGS PERSONAL INFO
 
 const description = {
   dog: [
     {
-      id: 1,
+      id: 0,
       first_name: "Michael",
-      breed: "Lawson",
+      breed: "Border Collie",
       age: 2,
+      cost: "500$",
+    },
+    {
+      id: 1,
+      first_name: "Lindsay",
+      breed: "Maltese",
+      age: 4,
+      cost: "700$",
     },
     {
       id: 2,
-      first_name: "Lindsay",
-      breed: "Ferguson",
-      age: 4,
+      first_name: "Tobias",
+      breed: "Unknown",
+      age: 5,
+      cost: "400$",
     },
     {
       id: 3,
-      first_name: "Tobias",
-      breed: "Funke",
-      age: 5,
+      first_name: "Byron",
+      breed: "Pug",
+      age: 7,
+      cost: "200$",
     },
     {
       id: 4,
-      first_name: "Byron",
-      breed: "Fields",
-      age: 7,
-    },
-    {
-      id: 5,
       first_name: "George",
-      breed: "Edwards",
+      breed: "Unknown",
       age: 3,
+      cost: "500$",
     },
   ],
 };
 
-let pic = document.querySelector(".pic");
-pic.addEventListener("click", showDescription);
+// SHOW UP INFO
+
+let pic = document.getElementsByClassName("our-dogs-item");
+
+for (let i = 0; i < pic.length; i++) {
+  pic[i].addEventListener("click", showDescription);
+}
 
 function showDescription() {
-  console.log("dziala");
+  const innertext =
+    '<p class="our-dogs-item-info">`Hey, my name is: ${first_name}<br>I am ${age} years old<br>My breed is: ${breed}<br>They want for me: ${cost}`</p>';
+
+  if (this.innerHTML.includes(innertext)) {
+    this.removeChild(this.lastElementChild);
+  } else {
+    console.log("niezawiera");
+    this.innerHTML += innertext;
+  }
 }
+
+// console.log(description.dog[1].first_name);
