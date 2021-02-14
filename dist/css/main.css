@@ -243,6 +243,7 @@ a {
   width: 90%;
   margin: auto;
   margin-bottom: 1rem;
+  z-index: 1;
 }
 #our-dogs .our-dogs-item .fa-heart {
   position: absolute;

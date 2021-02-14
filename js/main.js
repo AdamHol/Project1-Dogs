@@ -39,6 +39,7 @@ const description = {
       breed: "Border Collie",
       age: 2,
       cost: "500$",
+      picture: "border-collie-maly.jpg",
     },
     {
       id: 1,
@@ -46,6 +47,7 @@ const description = {
       breed: "Maltese",
       age: 4,
       cost: "700$",
+      picture: "brazowy-maly.jpg",
     },
     {
       id: 2,
@@ -53,6 +55,7 @@ const description = {
       breed: "Unknown",
       age: 5,
       cost: "400$",
+      picture: "piekny-maly.jpg",
     },
     {
       id: 3,
@@ -60,6 +63,7 @@ const description = {
       breed: "Pug",
       age: 7,
       cost: "200$",
+      picture: "pug-maly.jpg",
     },
     {
       id: 4,
@@ -67,28 +71,41 @@ const description = {
       breed: "Unknown",
       age: 3,
       cost: "500$",
+      picture: "szary-maly.jpg",
     },
   ],
 };
 
 // SHOW UP INFO
 
-let pic = document.getElementsByClassName("our-dogs-item");
+// ADD PICTURES
 
-for (let i = 0; i < pic.length; i++) {
-  pic[i].addEventListener("click", showDescription);
+let pic = document.getElementById("our-dogs");
+
+description.dog.forEach((e) => {
+  pic.innerHTML += `<div class="our-dogs-item"><img src="./dist/img/slider/${
+    description.dog[e.id].picture
+  }" alt=""> <i class="far fa-heart"></i><p class="our-dogs-item-info">Hey, my name is: ${
+    description.dog[e.id].first_name
+  }<br>I am ${description.dog[e.id].age} years old<br>My breed is: ${
+    description.dog[e.id].breed
+  }<br>They want for me: ${description.dog[e.id].cost}</p></div>`;
+});
+
+// SHOW / HIDE PICTURE INFO
+
+let picDesc = document.getElementsByClassName("our-dogs-item");
+
+for (let i = 0; i < picDesc.length; i++) {
+  picDesc[i].addEventListener("click", showDescription);
 }
 
 function showDescription() {
-  const innertext =
-    '<p class="our-dogs-item-info">`Hey, my name is: ${first_name}<br>I am ${age} years old<br>My breed is: ${breed}<br>They want for me: ${cost}`</p>';
-
-  if (this.innerHTML.includes(innertext)) {
-    this.removeChild(this.lastElementChild);
+  if (this.firstChild.style.zIndex === "") {
+    this.firstChild.style.zIndex = "0";
+  } else if (this.firstChild.style.zIndex === "1") {
+    this.firstChild.style.zIndex = "0";
   } else {
-    console.log("niezawiera");
-    this.innerHTML += innertext;
+    this.firstChild.style.zIndex = "1";
   }
 }
-
-// console.log(description.dog[1].first_name);
