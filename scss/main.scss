@@ -268,15 +268,15 @@ a {
       right: 10%;
       font-size: 2rem;
       color: $heart-red;
-      display: none;
-      z-index: 2;
+      z-index: 8;
+      cursor: pointer;
     }
 
     .our-dogs-item-info {
       position: absolute;
       line-height: 2rem;
       font-size: 1rem;
-      color: $dog-info;
+      color: $white;
       font-weight: bold;
       width: 90%;
       left: 5%;

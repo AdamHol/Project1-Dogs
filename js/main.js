@@ -39,7 +39,7 @@ const description = {
       breed: "Border Collie",
       age: 2,
       cost: "500$",
-      picture: "border-collie-maly.jpg",
+      picture: "1.jpg",
     },
     {
       id: 1,
@@ -47,7 +47,7 @@ const description = {
       breed: "Maltese",
       age: 4,
       cost: "700$",
-      picture: "brazowy-maly.jpg",
+      picture: "2.jpg",
     },
     {
       id: 2,
@@ -55,7 +55,7 @@ const description = {
       breed: "Unknown",
       age: 5,
       cost: "400$",
-      picture: "piekny-maly.jpg",
+      picture: "3.jpg",
     },
     {
       id: 3,
@@ -63,7 +63,7 @@ const description = {
       breed: "Pug",
       age: 7,
       cost: "200$",
-      picture: "pug-maly.jpg",
+      picture: "4.jpg",
     },
     {
       id: 4,
@@ -71,7 +71,39 @@ const description = {
       breed: "Unknown",
       age: 3,
       cost: "500$",
-      picture: "szary-maly.jpg",
+      picture: "5.jpg",
+    },
+    {
+      id: 5,
+      first_name: "George",
+      breed: "Unknown",
+      age: 3,
+      cost: "500$",
+      picture: "6.jpg",
+    },
+    {
+      id: 6,
+      first_name: "George",
+      breed: "Unknown",
+      age: 3,
+      cost: "500$",
+      picture: "7.jpg",
+    },
+    {
+      id: 7,
+      first_name: "George",
+      breed: "Unknown",
+      age: 3,
+      cost: "500$",
+      picture: "8.jpg",
+    },
+    {
+      id: 8,
+      first_name: "George",
+      breed: "Unknown",
+      age: 3,
+      cost: "500$",
+      picture: "9.jpg",
     },
   ],
 };
@@ -83,7 +115,7 @@ const description = {
 let pic = document.getElementById("our-dogs");
 
 description.dog.forEach((e) => {
-  pic.innerHTML += `<div class="our-dogs-item"><img src="./dist/img/slider/${
+  pic.innerHTML += `<div class="our-dogs-item"><img src="./dist/img/all/${
     description.dog[e.id].picture
   }" alt=""> <i class="far fa-heart"></i><p class="our-dogs-item-info">Hey, my name is: ${
     description.dog[e.id].first_name
@@ -95,9 +127,11 @@ description.dog.forEach((e) => {
 // SHOW / HIDE PICTURE INFO
 
 let picDesc = document.getElementsByClassName("our-dogs-item");
+let heart = document.getElementsByClassName("fa-heart");
 
 for (let i = 0; i < picDesc.length; i++) {
   picDesc[i].addEventListener("click", showDescription);
+  heart[i].addEventListener("click", love);
 }
 
 function showDescription() {
@@ -107,5 +141,17 @@ function showDescription() {
     this.firstChild.style.zIndex = "0";
   } else {
     this.firstChild.style.zIndex = "1";
+  }
+}
+
+// Tick heart icon (add to favourites)
+
+function love(e) {
+  if (this.classList.contains("far")) {
+    this.classList.replace("far", "fas");
+    e.stopPropagation();
+  } else {
+    this.classList.replace("fas", "far");
+    e.stopPropagation();
   }
 }
