@@ -101,7 +101,15 @@ var description = {
 var pic = document.getElementById("our-dogs");
 description.dog.forEach(function (e) {
   pic.innerHTML += "<div class=\"our-dogs-item\"><img src=\"./dist/img/all/".concat(description.dog[e.id].picture, "\" alt=\"\"> <i class=\"far fa-heart\"></i><p class=\"our-dogs-item-info\">Hey, my name is: ").concat(description.dog[e.id].first_name, "<br>I am ").concat(description.dog[e.id].age, " years old<br>My breed is: ").concat(description.dog[e.id].breed, "<br>They want for me: ").concat(description.dog[e.id].cost, "</p></div>");
-}); // SHOW / HIDE PICTURE INFO
+}); // Function to load data from LocalStorage (if you like a dog)
+
+var saved = localStorage.getItem("likes");
+
+if (saved) {
+  var likes = document.querySelector("#our-dogs");
+  likes.innerHTML = saved;
+} // SHOW / HIDE PICTURE INFO
+
 
 var picDesc = document.getElementsByClassName("our-dogs-item");
 var heart = document.getElementsByClassName("fa-heart");
@@ -123,6 +131,8 @@ function showDescription() {
 
 
 function love(e) {
+  var likes = document.querySelector("#our-dogs");
+
   if (this.classList.contains("far")) {
     this.classList.replace("far", "fas");
     e.stopPropagation();
@@ -130,4 +140,13 @@ function love(e) {
     this.classList.replace("fas", "far");
     e.stopPropagation();
   }
+
+  localStorage.setItem("likes", likes.innerHTML);
+} //on start, hide dogs Info if was saved in local storage
+
+
+var hideInfo = document.getElementsByClassName("our-dogs-item");
+
+for (var _i = 0; _i < hideInfo.length; _i++) {
+  hideInfo[_i].firstChild.style.zIndex = "1";
 }

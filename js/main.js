@@ -124,6 +124,15 @@ description.dog.forEach((e) => {
   }<br>They want for me: ${description.dog[e.id].cost}</p></div>`;
 });
 
+// Function to load data from LocalStorage (if you like a dog)
+
+const saved = localStorage.getItem("likes");
+
+if (saved) {
+  const likes = document.querySelector("#our-dogs");
+  likes.innerHTML = saved;
+}
+
 // SHOW / HIDE PICTURE INFO
 
 let picDesc = document.getElementsByClassName("our-dogs-item");
@@ -147,6 +156,7 @@ function showDescription() {
 // Tick heart icon (add to favourites)
 
 function love(e) {
+  const likes = document.querySelector("#our-dogs");
   if (this.classList.contains("far")) {
     this.classList.replace("far", "fas");
     e.stopPropagation();
@@ -154,4 +164,14 @@ function love(e) {
     this.classList.replace("fas", "far");
     e.stopPropagation();
   }
+
+  localStorage.setItem("likes", likes.innerHTML);
+}
+
+//on start, hide dogs Info if was saved in local storage
+
+let hideInfo = document.getElementsByClassName("our-dogs-item");
+
+for (let i = 0; i < hideInfo.length; i++) {
+  hideInfo[i].firstChild.style.zIndex = "1";
 }
