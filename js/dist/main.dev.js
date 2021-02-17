@@ -117,6 +117,7 @@ var heart = document.getElementsByClassName("fa-heart");
 for (var i = 0; i < picDesc.length; i++) {
   picDesc[i].addEventListener("click", showDescription);
   heart[i].addEventListener("click", love);
+  heart[i].addEventListener("click", yourDogs);
 }
 
 function showDescription() {
@@ -152,11 +153,15 @@ for (var _i = 0; _i < hideInfo.length; _i++) {
 } // Create a list of all dogs added to favourites
 
 
-var favouriteDogs = localStorage.getItem("likes").split("<div");
-var listOfDogs = "";
-favouriteDogs.forEach(function (e) {
-  if (e.indexOf("fas") !== -1) {
-    listOfDogs += "<div" + e;
-  }
-});
-console.log(listOfDogs);
+function yourDogs() {
+  var favouriteDogs = localStorage.getItem("likes").split("<div");
+  var listOfDogs = "";
+  favouriteDogs.forEach(function (e) {
+    if (e.indexOf("fas") !== -1) {
+      listOfDogs += "<div" + e;
+    }
+  });
+  var printListOfDogs = document.getElementById("yourDogs");
+  printListOfDogs.innerHTML = "<button>Show my favourite dogs</button>  <h2>Yours favourite dogs:</h2>";
+  printListOfDogs.innerHTML += listOfDogs;
+}
