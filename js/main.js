@@ -67,42 +67,42 @@ const description = {
     },
     {
       id: 4,
-      first_name: "George",
+      first_name: "Dog",
       breed: "Unknown",
       age: 3,
-      cost: "500$",
+      cost: "300$",
       picture: "5.jpg",
     },
     {
       id: 5,
-      first_name: "George",
-      breed: "Unknown",
-      age: 3,
+      first_name: "Pluto",
+      breed: "No idea",
+      age: 4,
       cost: "500$",
       picture: "6.jpg",
     },
     {
       id: 6,
-      first_name: "George",
+      first_name: "Brad",
       breed: "Unknown",
-      age: 3,
-      cost: "500$",
+      age: 5,
+      cost: "800$",
       picture: "7.jpg",
     },
     {
       id: 7,
-      first_name: "George",
+      first_name: "Bobby",
       breed: "Unknown",
-      age: 3,
-      cost: "500$",
+      age: "0.2",
+      cost: "1200$",
       picture: "8.jpg",
     },
     {
       id: 8,
-      first_name: "George",
+      first_name: "Helga",
       breed: "Unknown",
-      age: 3,
-      cost: "500$",
+      age: 1,
+      cost: "1100$",
       picture: "9.jpg",
     },
   ],
@@ -175,3 +175,14 @@ let hideInfo = document.getElementsByClassName("our-dogs-item");
 for (let i = 0; i < hideInfo.length; i++) {
   hideInfo[i].firstChild.style.zIndex = "1";
 }
+
+// Create a list of all dogs added to favourites
+
+const favouriteDogs = localStorage.getItem("likes").split("<div");
+let listOfDogs = "";
+
+favouriteDogs.forEach((e) => {
+  if (e.indexOf("fas") !== -1) {
+    listOfDogs += "<div" + e;
+  }
+});
