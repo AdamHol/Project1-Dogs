@@ -203,7 +203,7 @@ buttonFavs.addEventListener("click", showIt);
 const favsShow = document.getElementById("yourDogs");
 
 function showIt() {
-  if (favsShow.style.display === "none") {
+  if (window.getComputedStyle(favsShow).display === "none") {
     favsShow.style.display = "block";
     buttonFavs.innerHTML = "Hide my favourite dogs";
   } else {
@@ -218,5 +218,5 @@ const savedFavs = localStorage.getItem("favs");
 
 if (savedFavs) {
   const favs = document.querySelector("#yourDogs");
-  favs.innerHTML = savedFavs;
+  favs.innerHTML = "<h2>Yours favourite dogs:</h2>" + savedFavs;
 }
