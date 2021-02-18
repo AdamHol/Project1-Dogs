@@ -188,7 +188,7 @@ a {
   width: 100px;
   height: 40px;
   border-radius: 30px;
-  background: #ddd;
+  background: #fafafa;
   color: #f18d68;
   font-weight: bold;
   font-size: 1rem;
@@ -273,4 +273,32 @@ a {
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.7);
   height: calc(100% - 1rem);
+}
+
+.separate {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+.separate .title {
+  margin: 1rem 0;
+}
+.separate p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+.separate .showUs {
+  align-self: center;
+  height: 40px;
+  width: 200px;
+  border-radius: 50px;
+  margin: 1rem auto;
+  background: #fafafa;
+  color: #f18d68;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+#yourDogs {
+  display: none;
 }

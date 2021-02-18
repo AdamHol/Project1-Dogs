@@ -162,6 +162,30 @@ function yourDogs() {
     }
   });
   var printListOfDogs = document.getElementById("yourDogs");
-  printListOfDogs.innerHTML = "<button>Show my favourite dogs</button>  <h2>Yours favourite dogs:</h2>";
+  printListOfDogs.innerHTML = "<h2>Yours favourite dogs:</h2>";
   printListOfDogs.innerHTML += listOfDogs;
+  localStorage.setItem("favs", listOfDogs);
+} // show favourites after click on button
+
+
+var buttonFavs = document.querySelector(".showUs");
+buttonFavs.addEventListener("click", showIt);
+var favsShow = document.getElementById("yourDogs");
+
+function showIt() {
+  if (favsShow.style.display === "none") {
+    favsShow.style.display = "block";
+    buttonFavs.innerHTML = "Hide my favourite dogs";
+  } else {
+    favsShow.style.display = "none";
+    buttonFavs.innerHTML = "Show my favourite dogs";
+  }
+} // Function to load favourite dogs data from LocalStorage (favourites dogs)
+
+
+var savedFavs = localStorage.getItem("favs");
+
+if (savedFavs) {
+  var favs = document.querySelector("#yourDogs");
+  favs.innerHTML = savedFavs;
 }

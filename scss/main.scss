@@ -21,7 +21,7 @@ a {
 
 .header {
   padding: 10px;
-  background: $header;
+  background: $whitey;
   text-align: left;
   border-bottom: 1px solid $light-grey;
 
@@ -199,7 +199,7 @@ a {
       width: 100px;
       height: 40px;
       border-radius: 30px;
-      background: $light-grey;
+      background: $whitey;
       color: $main-orange;
       font-weight: bold;
       font-size: 1rem;
@@ -287,4 +287,34 @@ a {
       height: calc(100% - 1rem);
     }
   }
+}
+
+.separate {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  .title {
+    margin: 1rem 0;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .showUs {
+    align-self: center;
+    height: 40px;
+    width: 200px;
+    border-radius: 50px;
+    margin: 1rem auto;
+    background: $whitey;
+    color: $main-orange;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
+
+#yourDogs {
+  display: none;
 }
