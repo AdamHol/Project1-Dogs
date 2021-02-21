@@ -218,5 +218,5 @@ const savedFavs = localStorage.getItem("favs");
 
 if (savedFavs) {
   const favs = document.querySelector("#yourDogs");
-  favs.innerHTML = "<h2>Yours favourite dogs:</h2>" + savedFavs;
+  favs.innerHTML = "<h2>Your favourite dogs:</h2>" + savedFavs;
 }

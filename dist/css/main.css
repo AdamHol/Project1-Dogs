@@ -301,4 +301,58 @@ a {
 
 #yourDogs {
   display: none;
+  text-align: center;
+  padding-top: 1rem;
+}
+#yourDogs h2 {
+  margin-bottom: 1rem;
+}
+
+#map {
+  text-align: center;
+  background: #ddd;
+  padding-top: 1rem;
+}
+#map .small-title {
+  color: #333;
+}
+#map iframe {
+  width: 100%;
+  height: 300px;
+}
+
+#contact {
+  padding: 15px;
+  background: url("/dist/img/main-medium.jpg") center center/cover;
+  color: #fafafa;
+}
+#contact div {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 0;
+}
+#contact div input,
+#contact div textarea {
+  outline: none;
+  border-radius: 5px;
+  padding: 2px;
+  border: 1px solid #333;
+}
+#contact div label[for=msg] {
+  vertical-align: top;
+}
+#contact div textarea {
+  resize: none;
+}
+#contact .required::after {
+  content: "*";
+  color: red;
+  vertical-align: top;
+}
+#contact button {
+  padding: 5px;
+  border-radius: 10px;
+  width: 80px;
+  color: #f18d68;
+  font-weight: bold;
+  align-self: center;
 }
