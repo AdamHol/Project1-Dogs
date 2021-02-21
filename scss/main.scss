@@ -17,6 +17,7 @@ li {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .header {
@@ -343,9 +344,15 @@ a {
   background: url("/dist/img/main-medium.jpg") center center/cover;
   color: $whitey;
 
+  h2 {
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 1rem 0;
+  }
+
   div {
     background: rgba(0, 0, 0, 0.4);
-    padding: 5px 0;
+    padding: 5px 10px;
 
     input,
     textarea {
@@ -370,11 +377,63 @@ a {
   }
 
   button {
+    margin-top: 5px;
     padding: 5px;
     border-radius: 10px;
-    width: 80px;
+    width: 100px;
+    font-size: 1rem;
     color: $main-orange;
     font-weight: bold;
     align-self: center;
+  }
+}
+
+#address {
+  text-align: center;
+  line-height: 1.8;
+  background: $violet;
+  padding: 1rem 0;
+  p {
+    color: $light-grey;
+    a {
+      color: $whitey;
+    }
+    span {
+      color: $whitey;
+    }
+  }
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutToNone {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  1% {
+    display: none;
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
   }
 }

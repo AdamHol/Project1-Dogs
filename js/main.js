@@ -205,9 +205,12 @@ const favsShow = document.getElementById("yourDogs");
 function showIt() {
   if (window.getComputedStyle(favsShow).display === "none") {
     favsShow.style.display = "block";
+    console.log(favsShow.style.display);
+    favsShow.style.animation = "fadeInFromNone 1s ease-out forwards";
     buttonFavs.innerHTML = "Hide my favourite dogs";
   } else {
     favsShow.style.display = "none";
+    favsShow.style.animation = "fadeOutToNone 1s ease-out forwards";
     buttonFavs.innerHTML = "Show my favourite dogs";
   }
 }
