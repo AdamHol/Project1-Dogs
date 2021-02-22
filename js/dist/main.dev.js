@@ -5,7 +5,7 @@ var burger = document.getElementById("burger");
 burger.addEventListener("click", showMenu);
 
 function showMenu() {
-  this.style.animation = "fadeInFromNone 1s ease-out forwards";
+  this.style.animation = "fadeInFromNone 0.5s ease-out forwards";
   var burgerMenu = document.getElementById("burgerMenu");
   burgerMenu.style.transform = "translateX(0px)";
   burgerClose.style.animation = "";
@@ -15,7 +15,7 @@ var burgerClose = document.getElementById("closeMenu");
 burgerClose.addEventListener("click", hideMenu);
 
 function hideMenu() {
-  this.style.animation = "fadeInFromNone 1s ease-out forwards";
+  this.style.animation = "fadeInFromNone 0.5s ease-out forwards";
   var hideMenu = document.getElementById("burgerMenu");
   hideMenu.style.transform = "translateX(800px)";
   burger.style.animation = "";
@@ -180,6 +180,8 @@ function yourDogs() {
 
 var buttonFavs = document.querySelector(".showUs");
 buttonFavs.addEventListener("click", showIt);
+var linkToFavs = document.querySelector(".showDogs");
+linkToFavs.addEventListener("click", showIt);
 var favsShow = document.getElementById("yourDogs");
 
 function showIt() {
@@ -222,4 +224,23 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
 
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+} // Hide scroll to top button on the end of the page
+
+
+var $window = $(window),
+    $document = $(document),
+    button = $("#myBtn");
+button.css({
+  opacity: 1
+});
+$window.on("scroll", function () {
+  if ($window.scrollTop() + $window.height() == $document.height()) {
+    button.stop(true).animate({
+      opacity: 0
+    }, 250);
+  } else {
+    button.stop(true).animate({
+      opacity: 1
+    }, 250);
+  }
+});
