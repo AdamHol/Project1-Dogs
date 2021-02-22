@@ -4,18 +4,25 @@ const burger = document.getElementById("burger");
 burger.addEventListener("click", showMenu);
 
 function showMenu() {
+  this.style.animation = "fadeInFromNone 1s ease-out forwards";
   const burgerMenu = document.getElementById("burgerMenu");
-  console.log(burgerMenu.style.color);
   burgerMenu.style.transform = "translateX(0px)";
+  burgerClose.style.animation = "";
 }
 
 const burgerClose = document.getElementById("closeMenu");
 burgerClose.addEventListener("click", hideMenu);
 
 function hideMenu() {
+  this.style.animation = "fadeInFromNone 1s ease-out forwards";
   const hideMenu = document.getElementById("burgerMenu");
-  console.log(hideMenu.style.color);
   hideMenu.style.transform = "translateX(800px)";
+  burger.style.animation = "";
+}
+
+const menuLinks = document.getElementsByClassName(" nav-burger-menu-list-item");
+for (let i = 0; i < menuLinks.length; i++) {
+  menuLinks[i].addEventListener("click", hideMenu);
 }
 
 // Slider
@@ -205,7 +212,6 @@ const favsShow = document.getElementById("yourDogs");
 function showIt() {
   if (window.getComputedStyle(favsShow).display === "none") {
     favsShow.style.display = "block";
-    console.log(favsShow.style.display);
     favsShow.style.animation = "fadeInFromNone 1s ease-out forwards";
     buttonFavs.innerHTML = "Hide my favourite dogs";
   } else {
@@ -222,4 +228,26 @@ const savedFavs = localStorage.getItem("favs");
 if (savedFavs) {
   const favs = document.querySelector("#yourDogs");
   favs.innerHTML = "<h2>Your favourite dogs:</h2>" + savedFavs;
+}
+
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }

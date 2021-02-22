@@ -33,22 +33,22 @@
       <div class="header-social">
         <ul>
           <li>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fab fa-skype"></i></a>
+            <a href="https://skype.com/" target="_blank"><i class="fab fa-skype"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://whatsapp.com/" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </li>
         </ul>
       </div>
@@ -63,11 +63,14 @@
           <p class="logo-add"><span>Dogs shelter</span> Our loved ones</p>
         </div>
         <ul class="nav-burger-menu-list">
-          <li>About us <i class="fas fa-chevron-down"></i></li>
-          <li>How To Adopt <i class="fas fa-chevron-down"></i></li>
-          <li>Our Dogs <i class="fas fa-chevron-down"></i></li>
-          <li>Yours favourite dogs <i class="fas fa-chevron-down"></i></li>
-          <li>Contact <i class="fas fa-chevron-down"></i></li>
+          <li class="nav-burger-menu-list-item"><a href="#about">About us <i class="fas fa-chevron-down"></i></a></li>
+          <li class="nav-burger-menu-list-item"><a href="#how-to">How To Adopt <i class="fas fa-chevron-down"></i></a>
+          </li>
+          <li class="nav-burger-menu-list-item"><a href="#our-dogs">Our Dogs <i class="fas fa-chevron-down"></i></a>
+          </li>
+          <li class="nav-burger-menu-list-item"><a href="#showUs-btn">Yours favourite dogs <i
+                class="fas fa-chevron-down"></i></a></li>
+          <li class="nav-burger-menu-list-item"><a href="#contact">Contact <i class="fas fa-chevron-down"></i></a></li>
         </ul>
       </div>
     </div>
@@ -75,7 +78,7 @@
   <section id="main">
     <div class="main-wrapper">
       <img class="main-pic" src="./dist/img/main-big.jpg" alt="">
-      <button class="main-button">About us</button>
+      <button class="main-button"><a href="#about">About us</a></button>
       <p></p>
     </div>
   </section>
@@ -120,7 +123,7 @@
     <p>If You want to see your favourite dogs (if you don't know how, just press heart icon on the picture which you
       loved), press button below
       :)</p>
-    <button class="showUs">Show my favourite dogs</button>
+    <button id="showUs-btn" class="showUs">Show my favourite dogs</button>
   </section>
 
   <section id="yourDogs">
@@ -168,7 +171,7 @@
       <p>Address: <span>564, Dogs Disneyland, Wonderland</span></p>
 
     </address>
-
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-circle-up fa-2x"></i></button>
   </footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

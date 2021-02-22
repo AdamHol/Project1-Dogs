@@ -8,6 +8,34 @@
   line-height: 1.4;
 }
 
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+@keyframes fadeOutToNone {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  1% {
+    display: none;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -164,13 +192,15 @@ a {
   color: black;
 }
 .nav-burger-menu-list {
-  color: white;
   margin-top: 3rem;
   font-size: 1.2rem;
 }
 .nav-burger-menu-list li {
   margin-bottom: 1rem;
   margin-left: 1rem;
+}
+.nav-burger-menu-list a {
+  color: white;
 }
 
 #main .main-wrapper {
@@ -190,10 +220,12 @@ a {
   height: 40px;
   border-radius: 30px;
   background: #fafafa;
-  color: #f18d68;
   font-weight: bold;
   font-size: 1rem;
   outline: none;
+}
+#main .main-wrapper .main-button a {
+  color: #f18d68;
 }
 
 #about {
@@ -381,31 +413,20 @@ a {
   color: #fafafa;
 }
 
-@keyframes fadeInFromNone {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-@keyframes fadeOutToNone {
-  0% {
-    display: block;
-    opacity: 1;
-  }
-  1% {
-    display: none;
-    opacity: 1;
-  }
-  100% {
-    display: none;
-    opacity: 0;
-  }
+#myBtn,
+#myBtn:active,
+#myBtn:focus {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #0a5c02;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 18px;
 }
