@@ -196,10 +196,24 @@ function yourDogs() {
     }
   });
 
-  const printListOfDogs = document.getElementById("yourDogs");
-  printListOfDogs.innerHTML = "<h2>Yours favourite dogs:</h2>";
-  printListOfDogs.innerHTML += listOfDogs;
-  localStorage.setItem("favs", listOfDogs);
+  if (listOfDogs.length == 0) {
+    const printListOfDogs = document.getElementById("yourDogs");
+
+    printListOfDogs.innerHTML =
+      "<h2>You have no favourite dogs</h2><p>(Click on heart icon in top-right corner od dog picture to add him to your favourites)";
+    localStorage.setItem("favs", listOfDogs);
+  } else if (listOfDogs.length > 0 && listOfDogs.length < 300) {
+    const printListOfDogs = document.getElementById("yourDogs");
+    printListOfDogs.innerHTML = "<h2>Yours favourite dog is:</h2>";
+    printListOfDogs.innerHTML += listOfDogs;
+    localStorage.setItem("favs", listOfDogs);
+  } else {
+    const printListOfDogs = document.getElementById("yourDogs");
+    printListOfDogs.innerHTML = "<h2>Yours favourite dogs:</h2>";
+    printListOfDogs.innerHTML += listOfDogs;
+    localStorage.setItem("favs", listOfDogs);
+  }
+  console.log(listOfDogs.length);
 }
 
 // show favourites after click on button
