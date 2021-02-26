@@ -238,7 +238,7 @@ function showIt() {
   }
 }
 
-// Function to load favourite dogs data from LocalStorage (favourites dogs)
+// Function to load favourite dogs data from LocalStorage
 
 const savedFavs = localStorage.getItem("favs");
 

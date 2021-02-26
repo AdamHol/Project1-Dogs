@@ -329,6 +329,9 @@ a {
   h2 {
     margin-bottom: 1rem;
   }
+  p {
+    padding-bottom: 1rem;
+  }
 }
 
 #map {
@@ -425,4 +428,23 @@ a {
   padding: 5px;
   border-radius: 10px;
   font-size: 18px;
+}
+
+@import "media";
+
+@media only screen and (min-width: 500px) {
+  #contact {
+    h2 {
+      font-size: 2rem;
+    }
+    label {
+      font-size: 2rem;
+    }
+    input {
+      font-size: 1.2rem;
+    }
+    textarea {
+      font-size: 1.2rem;
+    }
+  }
 }

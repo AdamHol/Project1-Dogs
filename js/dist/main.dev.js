@@ -210,7 +210,7 @@ function showIt() {
     favsShow.style.animation = "fadeOutToNone 1s ease-out forwards";
     buttonFavs.innerHTML = "Show my favourite dogs";
   }
-} // Function to load favourite dogs data from LocalStorage (favourites dogs)
+} // Function to load favourite dogs data from LocalStorage
 
 
 var savedFavs = localStorage.getItem("favs");

@@ -340,6 +340,9 @@ a {
 #yourDogs h2 {
   margin-bottom: 1rem;
 }
+#yourDogs p {
+  padding-bottom: 1rem;
+}
 
 #map {
   text-align: center;
@@ -429,4 +432,30 @@ a {
   padding: 5px;
   border-radius: 10px;
   font-size: 18px;
+}
+
+@media only screen and (min-width: 500px) {
+  #contact h2 {
+    font-size: 2.5rem;
+  }
+  #contact label {
+    font-size: 2rem;
+  }
+  #contact input {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 500px) {
+  #contact h2 {
+    font-size: 2rem;
+  }
+  #contact label {
+    font-size: 2rem;
+  }
+  #contact input {
+    font-size: 1.2rem;
+  }
+  #contact textarea {
+    font-size: 1.2rem;
+  }
 }
