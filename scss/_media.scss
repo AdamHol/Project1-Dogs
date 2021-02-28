@@ -1,0 +1,145 @@
+@media only screen and (min-width: 400px) {
+  #contact {
+    h2 {
+      font-size: 2rem;
+    }
+    form {
+      label {
+        font-size: 1.2rem;
+      }
+      input {
+        font-size: 1.1rem;
+      }
+
+      button {
+        width: 120px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 760px) {
+  .header {
+    display: flex;
+
+    &-mail {
+      width: 50%;
+    }
+
+    &-social {
+      width: 50%;
+      ul {
+        li {
+          a {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .nav {
+    &-burger {
+      display: none;
+    }
+
+    &-burger-menu {
+      position: relative;
+      transform: none;
+      transition: none;
+      opacity: 1;
+      background: none;
+      width: calc(100% - 100px);
+      height: 100px;
+      right: 0px;
+
+      &-close {
+        display: none;
+      }
+
+      &-logo {
+        display: none;
+      }
+
+      &-list {
+        display: flex;
+        margin-top: 0;
+        margin-right: 40px;
+        &-item {
+          width: 200px;
+          display: table;
+          text-align: center;
+          background: $violet;
+          border-radius: 5px;
+          a {
+            padding: 10px;
+            display: table-cell;
+            vertical-align: middle;
+            height: 100%;
+            &:hover {
+              color: $main-orange;
+              background: rgba(0, 0, 0, 0.1);
+            }
+          }
+          i {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    background: url("../img/bg-main.jpg") no-repeat center center fixed;
+  }
+}
+
+.header {
+  padding: 10px 50px;
+}
+
+#about {
+  background: $light-grey;
+}
+
+#how-to {
+  text-align: center;
+  background: $whitey;
+  color: $main-orange;
+  h2 {
+    color: $main-orange;
+  }
+}
+
+.separate {
+  background: $whitey;
+}
+
+#contact {
+  form {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 0;
+    div {
+      display: inline-block;
+      margin-bottom: 1rem;
+      background: none;
+    }
+
+    div:last-of-type {
+      display: block;
+      background: none;
+
+      textarea {
+        width: 300px;
+      }
+    }
+  }
+}
+
+#myBtn,
+#myBtn:active,
+#myBtn:focus {
+  background: $violet;
+}

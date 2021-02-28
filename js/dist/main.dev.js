@@ -1,5 +1,6 @@
 "use strict";
 
+// "use strict";
 // HIDE / SHOW MENU (burger button)
 var burger = document.getElementById("burger");
 burger.addEventListener("click", showMenu);
@@ -7,7 +8,7 @@ burger.addEventListener("click", showMenu);
 function showMenu() {
   this.style.animation = "fadeInFromNone 0.5s ease-out forwards";
   var burgerMenu = document.getElementById("burgerMenu");
-  burgerMenu.style.transform = "translateX(0px)";
+  burgerMenu.style.transform = "translateX(-800px)";
   burgerClose.style.animation = "";
 }
 
@@ -17,24 +18,44 @@ burgerClose.addEventListener("click", hideMenu);
 function hideMenu() {
   this.style.animation = "fadeInFromNone 0.5s ease-out forwards";
   var hideMenu = document.getElementById("burgerMenu");
-  hideMenu.style.transform = "translateX(800px)";
+  hideMenu.style.transform = "translateX(0px)";
   burger.style.animation = "";
-}
+} // Hide menu after choose if width < 760px
 
+
+var mediaQuery = window.matchMedia("(min-width: 768px");
+var mediaQueryRemover = window.matchMedia("(max-width: 767px");
 var menuLinks = document.getElementsByClassName(" nav-burger-menu-list-item");
 
-for (var i = 0; i < menuLinks.length; i++) {
-  menuLinks[i].addEventListener("click", hideMenu);
-} // Slider
+function handleMenu(e) {
+  if (e.matches) {
+    for (var i = 0; i < menuLinks.length; i++) {
+      menuLinks[i].removeEventListener("click", hideMenu, false);
+    }
+  }
+}
 
+function handleMenuTwo(e) {
+  if (e.matches) {
+    for (var i = 0; i < menuLinks.length; i++) {
+      menuLinks[i].addEventListener("click", hideMenu);
+    }
+  }
+}
+
+mediaQuery.addListener(handleMenu);
+mediaQueryRemover.addListener(handleMenuTwo);
+handleMenu(mediaQuery);
+handleMenu(mediaQueryRemover); // Slider
 
 $(function () {
   $(".autoplay").slick({
-    slidesToShow: 2,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    arrows: false
+    arrows: false,
+    infinite: true
   });
 }); // DOGS PERSONAL INFO
 
@@ -122,12 +143,10 @@ if (saved) {
 var picDesc = document.getElementsByClassName("our-dogs-item");
 var heart = document.getElementsByClassName("fa-heart");
 
-for (var _i = 0; _i < picDesc.length; _i++) {
-  picDesc[_i].addEventListener("click", showDescription);
-
-  heart[_i].addEventListener("click", love);
-
-  heart[_i].addEventListener("click", yourDogs);
+for (var i = 0; i < picDesc.length; i++) {
+  picDesc[i].addEventListener("click", showDescription);
+  heart[i].addEventListener("click", love);
+  heart[i].addEventListener("click", yourDogs);
 }
 
 function showDescription() {
@@ -158,8 +177,8 @@ function love(e) {
 
 var hideInfo = document.getElementsByClassName("our-dogs-item");
 
-for (var _i2 = 0; _i2 < hideInfo.length; _i2++) {
-  hideInfo[_i2].firstChild.style.zIndex = "1";
+for (var _i = 0; _i < hideInfo.length; _i++) {
+  hideInfo[_i].firstChild.style.zIndex = "1";
 } // Create a list of all dogs added to favourites
 
 

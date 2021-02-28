@@ -1,3 +1,5 @@
+// "use strict";
+
 // HIDE / SHOW MENU (burger button)
 
 const burger = document.getElementById("burger");
@@ -6,7 +8,7 @@ burger.addEventListener("click", showMenu);
 function showMenu() {
   this.style.animation = "fadeInFromNone 0.5s ease-out forwards";
   const burgerMenu = document.getElementById("burgerMenu");
-  burgerMenu.style.transform = "translateX(0px)";
+  burgerMenu.style.transform = "translateX(-800px)";
   burgerClose.style.animation = "";
 }
 
@@ -16,23 +18,49 @@ burgerClose.addEventListener("click", hideMenu);
 function hideMenu() {
   this.style.animation = "fadeInFromNone 0.5s ease-out forwards";
   const hideMenu = document.getElementById("burgerMenu");
-  hideMenu.style.transform = "translateX(800px)";
+  hideMenu.style.transform = "translateX(0px)";
   burger.style.animation = "";
 }
 
+// Hide menu after choose if width < 760px
+
+const mediaQuery = window.matchMedia("(min-width: 768px");
+const mediaQueryRemover = window.matchMedia("(max-width: 767px");
 const menuLinks = document.getElementsByClassName(" nav-burger-menu-list-item");
-for (let i = 0; i < menuLinks.length; i++) {
-  menuLinks[i].addEventListener("click", hideMenu);
+
+function handleMenu(e) {
+  if (e.matches) {
+    for (let i = 0; i < menuLinks.length; i++) {
+      menuLinks[i].removeEventListener("click", hideMenu, false);
+    }
+  }
 }
 
+function handleMenuTwo(e) {
+  if (e.matches) {
+    for (let i = 0; i < menuLinks.length; i++) {
+      menuLinks[i].addEventListener("click", hideMenu);
+    }
+  }
+}
+
+mediaQuery.addListener(handleMenu);
+
+mediaQueryRemover.addListener(handleMenuTwo);
+
+handleMenu(mediaQuery);
+handleMenu(mediaQueryRemover);
+
 // Slider
+
 $(function () {
   $(".autoplay").slick({
-    slidesToShow: 2,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     arrows: false,
+    infinite: true,
   });
 });
 
@@ -134,7 +162,6 @@ description.dog.forEach((e) => {
 // Function to load data from LocalStorage (if you like a dog)
 
 const saved = localStorage.getItem("likes");
-
 if (saved) {
   const likes = document.querySelector("#our-dogs");
   likes.innerHTML = saved;

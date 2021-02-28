@@ -2,10 +2,55 @@
   font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .text {
   line-height: 1.4;
+}
+
+button {
+  cursor: pointer;
+}
+button:hover {
+  background: #ddd;
+}
+button:focus {
+  border: 2px solid green;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  nav-index: 1;
+}
+a:hover {
+  color: #ed6a39;
+}
+a:focus {
+  border: 2px solid green;
+}
+
+i {
+  nav-index: 1;
+}
+i:hover {
+  color: #ed6a39;
+}
+i:focus {
+  border: 2px solid green;
+}
+
+input:focus {
+  border: 2px solid green !important;
+}
+
+textarea:focus {
+  border: 2px solid green !important;
 }
 
 @keyframes fadeInFromNone {
@@ -47,13 +92,9 @@ html {
   scroll-behavior: smooth;
 }
 
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: black;
+body {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header {
@@ -135,14 +176,15 @@ a {
 .nav-burger-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -800px;
   background: #7d6fd8;
   padding: 10px;
-  width: 90%;
-  height: 100vh;
-  transform: translateX(800px);
+  width: 300px;
+  height: 500px;
   transition: 2s;
   z-index: 10;
+  opacity: 0.95;
+  border-radius: 50px 0 0 50px;
 }
 .nav-burger-menu-close {
   height: 50px;
@@ -211,6 +253,7 @@ a {
   max-width: 1200px;
   object-fit: cover;
   width: 100%;
+  display: block;
 }
 #main .main-wrapper .main-button {
   position: absolute;
@@ -224,12 +267,15 @@ a {
   font-size: 1rem;
   outline: none;
 }
+#main .main-wrapper .main-button:hover {
+  background: #ddd;
+}
 #main .main-wrapper .main-button a {
   color: #f18d68;
 }
 
 #about {
-  margin: 1rem auto;
+  padding: 1rem auto;
   padding: 15px;
 }
 
@@ -237,9 +283,10 @@ a {
   display: flex;
   background: #ddd;
   padding-top: 15px;
+  width: 1200px;
+  margin-left: calc((-1200px + 100%) / 2);
 }
 .slider .item {
-  width: 350px;
   margin-bottom: 1rem;
 }
 .slider .item img {
@@ -275,6 +322,8 @@ a {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  max-width: 600px;
+  margin: 0 auto;
 }
 #our-dogs .our-dogs-item img,
 #yourDogs .our-dogs-item img {
@@ -312,6 +361,7 @@ a {
   padding: 0 15px;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .separate .title {
   margin: 1rem 0;
@@ -330,6 +380,9 @@ a {
   color: #f18d68;
   font-weight: bold;
   font-size: 1rem;
+}
+.separate .showUs:hover {
+  background: #ddd;
 }
 
 #yourDogs {
@@ -361,6 +414,7 @@ a {
   padding: 15px;
   background: url("/dist/img/main-medium.jpg") center center/cover;
   color: #fafafa;
+  text-align: center;
 }
 #contact h2 {
   background: rgba(0, 0, 0, 0.4);
@@ -434,28 +488,124 @@ a {
   font-size: 18px;
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 400px) {
   #contact h2 {
-    font-size: 2.5rem;
-  }
-  #contact label {
     font-size: 2rem;
   }
-  #contact input {
-    font-size: 1.5rem;
+  #contact form label {
+    font-size: 1.2rem;
+  }
+  #contact form input {
+    font-size: 1.1rem;
+  }
+  #contact form button {
+    width: 120px;
   }
 }
-@media only screen and (min-width: 500px) {
-  #contact h2 {
-    font-size: 2rem;
+@media only screen and (min-width: 760px) {
+  .header {
+    display: flex;
   }
-  #contact label {
-    font-size: 2rem;
+  .header-mail {
+    width: 50%;
   }
-  #contact input {
-    font-size: 1.2rem;
+  .header-social {
+    width: 50%;
   }
-  #contact textarea {
-    font-size: 1.2rem;
+  .header-social ul li a {
+    font-size: 1.3rem;
   }
+
+  .nav-burger {
+    display: none;
+  }
+  .nav-burger-menu {
+    position: relative;
+    transform: none;
+    transition: none;
+    opacity: 1;
+    background: none;
+    width: calc(100% - 100px);
+    height: 100px;
+    right: 0px;
+  }
+  .nav-burger-menu-close {
+    display: none;
+  }
+  .nav-burger-menu-logo {
+    display: none;
+  }
+  .nav-burger-menu-list {
+    display: flex;
+    margin-top: 0;
+    margin-right: 40px;
+  }
+  .nav-burger-menu-list-item {
+    width: 200px;
+    display: table;
+    text-align: center;
+    background: #7d6fd8;
+    border-radius: 5px;
+  }
+  .nav-burger-menu-list-item a {
+    padding: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+  }
+  .nav-burger-menu-list-item a:hover {
+    color: #f18d68;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .nav-burger-menu-list-item i {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  html {
+    background: url("../img/bg-main.jpg") no-repeat center center fixed;
+  }
+}
+.header {
+  padding: 10px 50px;
+}
+
+#about {
+  background: #ddd;
+}
+
+#how-to {
+  text-align: center;
+  background: #fafafa;
+  color: #f18d68;
+}
+#how-to h2 {
+  color: #f18d68;
+}
+
+.separate {
+  background: #fafafa;
+}
+
+#contact form {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 0;
+}
+#contact form div {
+  display: inline-block;
+  margin-bottom: 1rem;
+  background: none;
+}
+#contact form div:last-of-type {
+  display: block;
+  background: none;
+}
+#contact form div:last-of-type textarea {
+  width: 300px;
+}
+
+#myBtn,
+#myBtn:active,
+#myBtn:focus {
+  background: #7d6fd8;
 }

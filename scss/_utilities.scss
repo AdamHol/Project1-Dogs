@@ -2,8 +2,52 @@
   font-size: 2rem;
   color: $dark-grey;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .text {
   line-height: 1.4;
+}
+
+button {
+  cursor: pointer;
+  &:hover {
+    background: $light-grey;
+  }
+  &:focus {
+    border: 2px solid green;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  nav-index: 1;
+  &:hover {
+    color: darken($main-orange, 10%);
+  }
+  &:focus {
+    border: 2px solid green;
+  }
+}
+
+i {
+  nav-index: 1;
+  &:hover {
+    color: darken($main-orange, 10%);
+  }
+  &:focus {
+    border: 2px solid green;
+  }
+}
+
+input:focus {
+  border: 2px solid green !important;
+}
+textarea:focus {
+  border: 2px solid green !important;
 }
