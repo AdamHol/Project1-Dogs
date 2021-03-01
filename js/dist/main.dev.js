@@ -126,8 +126,10 @@ var description = {
   }]
 }; // SHOW UP INFO
 // ADD PICTURES
+//TEST
+// let pic = document.getElementById("our-dogs");
 
-var pic = document.getElementById("our-dogs");
+var pic = document.querySelector(".our-dogs-wrapper");
 description.dog.forEach(function (e) {
   pic.innerHTML += "<div class=\"our-dogs-item\"><img src=\"./dist/img/all/".concat(description.dog[e.id].picture, "\" alt=\"\"> <i class=\"far fa-heart\"></i><p class=\"our-dogs-item-info\">Hey, my name is: ").concat(description.dog[e.id].first_name, "<br>I am ").concat(description.dog[e.id].age, " years old<br>My breed is: ").concat(description.dog[e.id].breed, "<br>They want for me: ").concat(description.dog[e.id].cost, "</p></div>");
 }); // Function to load data from LocalStorage (if you like a dog)
@@ -135,19 +137,22 @@ description.dog.forEach(function (e) {
 var saved = localStorage.getItem("likes");
 
 if (saved) {
-  var likes = document.querySelector("#our-dogs");
+  // const likes = document.querySelector("#our-dogs");
+  var likes = document.querySelector(".our-dogs-wrapper");
   likes.innerHTML = saved;
 } // SHOW / HIDE PICTURE INFO
 
 
-var picDesc = document.getElementsByClassName("our-dogs-item");
-var heart = document.getElementsByClassName("fa-heart");
+document.addEventListener("DOMContentLoaded", function (e) {
+  var picDesc = document.getElementsByClassName("our-dogs-item");
+  var heart = document.getElementsByClassName("fa-heart");
 
-for (var i = 0; i < picDesc.length; i++) {
-  picDesc[i].addEventListener("click", showDescription);
-  heart[i].addEventListener("click", love);
-  heart[i].addEventListener("click", yourDogs);
-}
+  for (var i = 0; i < picDesc.length; i++) {
+    picDesc[i].addEventListener("click", showDescription);
+    heart[i].addEventListener("click", love);
+    heart[i].addEventListener("click", yourDogs);
+  }
+});
 
 function showDescription() {
   if (this.firstChild.style.zIndex === "") {
@@ -161,7 +166,8 @@ function showDescription() {
 
 
 function love(e) {
-  var likes = document.querySelector("#our-dogs");
+  // const likes = document.querySelector("#our-dogs");
+  var likes = document.querySelector(".our-dogs-wrapper");
 
   if (this.classList.contains("far")) {
     this.classList.replace("far", "fas");
@@ -175,12 +181,14 @@ function love(e) {
 } //on start, hide dogs Info if was saved in local storage
 
 
-var hideInfo = document.getElementsByClassName("our-dogs-item");
+document.addEventListener("DOMContentLoaded", function (e) {
+  var hideInfo = document.getElementsByClassName("our-dogs-item");
+  var dupa = HTMLCollection.length;
 
-for (var _i = 0; _i < hideInfo.length; _i++) {
-  hideInfo[_i].firstChild.style.zIndex = "1";
-} // Create a list of all dogs added to favourites
-
+  for (var i = 0; i < hideInfo.length; i++) {
+    hideInfo[i].firstChild.style.zIndex = "1";
+  }
+}); // Create a list of all dogs added to favourites
 
 function yourDogs() {
   var favouriteDogs = localStorage.getItem("likes").split("<div");
@@ -198,18 +206,16 @@ function yourDogs() {
   } else if (listOfDogs.length > 0 && listOfDogs.length < 300) {
     var _printListOfDogs = document.getElementById("yourDogs");
 
-    _printListOfDogs.innerHTML = "<h2>Yours favourite dog is:</h2>";
+    _printListOfDogs.innerHTML = "<h2>Your favourite dog is:</h2>";
     _printListOfDogs.innerHTML += listOfDogs;
     localStorage.setItem("favs", listOfDogs);
   } else {
     var _printListOfDogs2 = document.getElementById("yourDogs");
 
-    _printListOfDogs2.innerHTML = "<h2>Yours favourite dogs:</h2>";
+    _printListOfDogs2.innerHTML = "<h2>Your favourite dogs:</h2>";
     _printListOfDogs2.innerHTML += listOfDogs;
     localStorage.setItem("favs", listOfDogs);
   }
-
-  console.log(listOfDogs.length);
 } // show favourites after click on button
 
 
@@ -236,7 +242,12 @@ var savedFavs = localStorage.getItem("favs");
 
 if (savedFavs) {
   var favs = document.querySelector("#yourDogs");
-  favs.innerHTML = "<h2>Your favourite dogs:</h2>" + savedFavs;
+
+  if (savedFavs.length < 300) {
+    favs.innerHTML = "<h2>Your favourite dog is:</h2>" + savedFavs;
+  } else {
+    favs.innerHTML = "<h2>Your favourite dogs:</h2>" + savedFavs;
+  }
 } //Get the button:
 
 

@@ -44,6 +44,8 @@
     }
 
     &-burger-menu {
+      // display: flex;
+      // justify-content: space-between;
       position: relative;
       transform: none;
       transition: none;
@@ -62,24 +64,31 @@
       }
 
       &-list {
+        width: 100%;
         display: flex;
+        justify-content: space-evenly;
+
         margin-top: 0;
         margin-right: 40px;
         &-item {
-          width: 200px;
           display: table;
           text-align: center;
-          background: $violet;
+          height: 80px;
+          padding: 0 20px;
+          background: $main-orange;
           border-radius: 5px;
+          &:hover {
+            color: $main-orange;
+
+            background: rgba(0, 0, 0, 0.6);
+          }
           a {
+            color: $whitey;
+            font-weight: bolder;
             padding: 10px;
             display: table-cell;
             vertical-align: middle;
             height: 100%;
-            &:hover {
-              color: $main-orange;
-              background: rgba(0, 0, 0, 0.1);
-            }
           }
           i {
             display: none;
@@ -87,6 +96,12 @@
         }
       }
     }
+  }
+}
+
+#our-dogs {
+  .our-dogs-wrapper {
+    background: none;
   }
 }
 

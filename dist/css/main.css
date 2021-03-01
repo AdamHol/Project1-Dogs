@@ -355,6 +355,8 @@ body {
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.7);
   height: calc(100% - 1rem);
+  text-align: center;
+  padding-top: 15%;
 }
 
 .separate {
@@ -386,7 +388,6 @@ body {
 }
 
 #yourDogs {
-  display: none;
   text-align: center;
   padding-top: 1rem;
 }
@@ -536,26 +537,31 @@ body {
     display: none;
   }
   .nav-burger-menu-list {
+    width: 100%;
     display: flex;
+    justify-content: space-evenly;
     margin-top: 0;
     margin-right: 40px;
   }
   .nav-burger-menu-list-item {
-    width: 200px;
     display: table;
     text-align: center;
-    background: #7d6fd8;
+    height: 80px;
+    padding: 0 20px;
+    background: #f18d68;
     border-radius: 5px;
   }
+  .nav-burger-menu-list-item:hover {
+    color: #f18d68;
+    background: rgba(0, 0, 0, 0.6);
+  }
   .nav-burger-menu-list-item a {
+    color: #fafafa;
+    font-weight: bolder;
     padding: 10px;
     display: table-cell;
     vertical-align: middle;
     height: 100%;
-  }
-  .nav-burger-menu-list-item a:hover {
-    color: #f18d68;
-    background: rgba(0, 0, 0, 0.1);
   }
   .nav-burger-menu-list-item i {
     display: none;
