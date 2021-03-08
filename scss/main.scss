@@ -299,6 +299,7 @@ body {
       height: calc(100% - 1rem);
       text-align: center;
       padding-top: 15%;
+      user-select: none;
     }
   }
 }

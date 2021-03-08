@@ -171,6 +171,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     localStorage.setItem("likes", likes.innerHTML);
+    var saved = localStorage.getItem("likes");
+
+    if (saved) {
+      var _likes = document.querySelector("#our-dogs");
+
+      _likes.innerHTML = saved;
+    }
   } //on start, hide dogs Info if was saved in local storage
 
 
