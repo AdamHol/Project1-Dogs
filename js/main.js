@@ -143,16 +143,50 @@ const description = {
   ],
 };
 
-let pic = document.getElementById("our-dogs");
-description.dog.forEach((e) => {
-  pic.innerHTML += `‎<div class="our-dogs-item"><img src="./dist/img/all/${
-    description.dog[e.id].picture
-  }" alt=""> <i class="far fa-heart"></i><p class="our-dogs-item-info">Hey, my name is: ${
-    description.dog[e.id].first_name
-  }<br>I am ${description.dog[e.id].age} years old<br>My breed is: ${
-    description.dog[e.id].breed
-  }<br>They want for me: ${description.dog[e.id].cost}</p></div>`;
-});
+let favDogs = [];
+
+function generateHtml(elements, target) {
+  elements.forEach((element) => { 
+    document.getElementById(target).innerHTML += `‎<div class="our-elements-item"><img src="./dist/img/all/${element.picture}" alt="">
+      <i class="far toggle-fav-heart fa-heart" attr-fav="${element.id}"></i>
+      <div class="our-elements-item-info"><p>Hey, my name: ${element.first_name}<br>
+      I am ${element.age} years old<br>My breed is: ${element.breed}<br>
+      They want for me: ${element.cost}</p></div></div>`;
+  });
+}
+
+generateHtml(description.dog, 'our-dogs'); 
+
+if(localStorage.getItem('fav-dogs')) {
+  favDogs = JSON.parse(localStorage.getItem('fav-dogs'));
+  generateHtml(favDogs, 'fav-dogs');
+}
+
+document.querySelectorAll('.dogs-list').forEach(function(dogsList) {
+  dogsList.addEventListener('click', function(el) {
+    if(hasClass(el.target, 'our-elements-item-info')) {
+      el.target.classList.toggle('active');
+    }
+    
+    if(hasClass(el.target, 'toggle-fav-heart')) {
+      el.target.classList.toggle('fas');
+      let favDogId = el.target.getAttribute('attr-fav');
+      let index = favDogs.findIndex(x => x.id == favDogId);
+      if(index == -1) {
+        favDogs.push(description.dog.find(x => x.id == favDogId))
+      } else {
+        favDogs.splice(index, 1);
+      }
+      document.getElementById('fav-dogs').innerHTML = '';
+      generateHtml(favDogs, 'fav-dogs');
+      localStorage.setItem('fav-dogs', JSON.stringify(favDogs));
+    }
+
+    if(hasClass(el.target, 'our-elements-item-info')) {
+      console.log('toggleInfo');
+    }
+  });
+})
 
 // Function to load data from LocalStorage (if you like a dog)
 
@@ -162,6 +196,10 @@ if (saved) {
   likes.innerHTML = saved;
 }
 
+function hasClass(element, className) {
+  return element.className.split(' ').indexOf(className) > -1;
+}
+
 // SHOW / HIDE PICTURE INFO
 document.addEventListener("DOMContentLoaded", function () {
   let picDesc = document.getElementsByClassName("our-dogs-item");
@@ -169,8 +207,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (let i = 0; i < picDesc.length; i++) {
     picDesc[i].addEventListener("click", showDescription);
-    heart[i].addEventListener("click", love);
-    heart[i].addEventListener("click", yourDogs);
+    heart[i].addEventListener("click", function(el) {
+      yourDogs;
+      love(el);
+    });
   }
 });
 
@@ -187,15 +227,14 @@ function showDescription() {
 // Tick heart icon (add to favourites)
 function love(e) {
   const likes = document.querySelector("#our-dogs");
-
-  if (this.classList.contains("far")) {
-    this.classList.replace("far", "fas");
+  el = e.target;
+  if (el.classList.contains("far")) {
+    el.classList.replace("far", "fas");
     e.stopPropagation();
   } else {
-    this.classList.replace("fas", "far");
+    el.classList.replace("fas", "far");
     e.stopPropagation();
   }
-  localStorage.setItem("likes", likes.innerHTML);
 }
 
 //on start, hide dogs Info if was saved in local storage
@@ -216,20 +255,20 @@ function yourDogs() {
     }
   });
 
-  let printListOfDogs = document.getElementById("your-dogs");
-  if (listOfDogs.length == 0) {
-    printListOfDogs.innerHTML =
-      "<h2 class='small-title'>You have no favourite dogs</h2><p>(Click on heart icon in top-right corner od dog picture to add him to your favourites)";
-  } else if (listOfDogs.length > 0 && listOfDogs.length < 300) {
-    let printListOfDogs = document.getElementById("your-dogs");
-    printListOfDogs.innerHTML = "<h2 class='small-title'>Your favourite dog is:</h2>";
-    printListOfDogs.innerHTML += listOfDogs;
-  } else {
-    let printListOfDogs = document.getElementById("your-dogs");
-    printListOfDogs.innerHTML = "<h2 class='small-title'>Your favourite dogs:</h2>";
-    printListOfDogs.innerHTML += listOfDogs;
-  }
-  localStorage.setItem("favs", listOfDogs);
+  // let printListOfDogs = document.getElementById("your-dogs");
+  // if (listOfDogs.length == 0) {
+  //   printListOfDogs.innerHTML =
+  //     "<h2 class='small-title'>You have no favourite dogs</h2><p>(Click on heart icon in top-right corner od dog picture to add him to your favourites)";
+  // } else if (listOfDogs.length > 0 && listOfDogs.length < 300) {
+  //   let printListOfDogs = document.getElementById("your-dogs");
+  //   printListOfDogs.innerHTML = "<h2 class='small-title'>Your favourite dog is:</h2>";
+  //   printListOfDogs.innerHTML += listOfDogs;
+  // } else {
+  //   let printListOfDogs = document.getElementById("your-dogs");
+  //   printListOfDogs.innerHTML = "<h2 class='small-title'>Your favourite dogs:</h2>";
+  //   printListOfDogs.innerHTML += listOfDogs;
+  // }
+  // localStorage.setItem("favs", listOfDogs);
 }
 
 // show favourites after click on button
@@ -253,6 +292,7 @@ function showIt() {
     buttonFavs.innerHTML = "Show my favourite dogs";
   }
 }
+
 
 // Function to load favourite dogs data from LocalStorage
 
