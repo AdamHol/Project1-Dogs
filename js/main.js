@@ -22,7 +22,7 @@ function hideMenu() {
   burger.style.animation = "";
 }
 
-// Hide menu after choose if width < 760px
+// Hide menu after choose if width < 768px
 
 const mediaQuery = window.matchMedia("(min-width: 768px");
 const mediaQueryRemover = window.matchMedia("(max-width: 767px");
@@ -61,6 +61,26 @@ $(function () {
     autoplaySpeed: 2000,
     arrows: false,
     infinite: true,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 499,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   });
 });
 
@@ -202,43 +222,6 @@ function hasClass(element, className) {
   return element.className.split(" ").indexOf(className) > -1;
 }
 
-// SHOW / HIDE PICTURE INFO
-// document.addEventListener("DOMContentLoaded", function () {
-//   let picDesc = document.getElementsByClassName("our-elements-item");
-//   let heart = document.getElementsByClassName("fa-heart");
-
-//   for (let i = 0; i < picDesc.length; i++) {
-//     // picDesc[i].addEventListener("click", showDescription);
-//     heart[i].addEventListener("click", function (el) {
-//       yourDogs;
-//       love(el);
-//     });
-//   }
-// });
-
-// function showDescription() {
-//   if (this.firstChild.style.zIndex === "") {
-//     this.firstChild.style.zIndex = "0";
-//   } else if (this.firstChild.style.zIndex === "1") {
-//     this.firstChild.style.zIndex = "0";
-//   } else {
-//     this.firstChild.style.zIndex = "1";
-//   }
-// }
-
-// Tick heart icon (add to favourites)
-// function love(e) {
-//   const likes = document.querySelector("#our-dogs");
-//   el = e.target;
-//   if (el.classList.contains("far")) {
-//     el.classList.replace("far", "fas");
-//     e.stopPropagation();
-//   } else {
-//     el.classList.replace("fas", "far");
-//     e.stopPropagation();
-//   }
-// }
-
 //on start, hide dogs Info if was saved in local storage
 let hideInfo = document.getElementsByClassName("our-dogs-item");
 const dupa = HTMLCollection.length;
@@ -256,21 +239,6 @@ function yourDogs() {
       listOfDogs += e;
     }
   });
-
-  // let printListOfDogs = document.getElementById("your-dogs");
-  // if (listOfDogs.length == 0) {
-  //   printListOfDogs.innerHTML =
-  //     "<h2 class='small-title'>You have no favourite dogs</h2><p>(Click on heart icon in top-right corner od dog picture to add him to your favourites)";
-  // } else if (listOfDogs.length > 0 && listOfDogs.length < 300) {
-  //   let printListOfDogs = document.getElementById("your-dogs");
-  //   printListOfDogs.innerHTML = "<h2 class='small-title'>Your favourite dog is:</h2>";
-  //   printListOfDogs.innerHTML += listOfDogs;
-  // } else {
-  //   let printListOfDogs = document.getElementById("your-dogs");
-  //   printListOfDogs.innerHTML = "<h2 class='small-title'>Your favourite dogs:</h2>";
-  //   printListOfDogs.innerHTML += listOfDogs;
-  // }
-  // localStorage.setItem("favs", listOfDogs);
 }
 
 // show favourites after click on button

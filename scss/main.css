@@ -371,8 +371,7 @@ body {
   display: flex;
   background: #ddd;
   padding-top: 15px;
-  width: 1200px;
-  margin-left: calc((-1200px + 100%) / 2);
+  width: 100%;
 }
 
 .slider .item {
