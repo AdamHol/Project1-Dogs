@@ -446,14 +446,13 @@ body {
 
 @import "media";
 
-
 // code to remove
 
 .our-elements-item {
   position: relative;
 }
 
-.our-elements-item-info{
+.our-elements-item-info {
   position: absolute;
   top: 0;
   right: 0;
@@ -463,6 +462,6 @@ body {
   transition: opacity 0.2s ease;
 }
 
-.our-elements-item-info.active{
+.our-elements-item-info.active {
   opacity: 1;
 }

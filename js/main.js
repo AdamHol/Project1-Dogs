@@ -142,12 +142,13 @@ const description = {
     },
   ],
 };
-
 let favDogs = [];
 
 function generateHtml(elements, target) {
-  elements.forEach((element) => { 
-    document.getElementById(target).innerHTML += `‎<div class="our-elements-item"><img src="./dist/img/all/${element.picture}" alt="">
+  elements.forEach((element) => {
+    document.getElementById(
+      target
+    ).innerHTML += `‎<div class="our-elements-item"><img src="./img/all/${element.picture}" alt="">
       <i class="far toggle-fav-heart fa-heart" attr-fav="${element.id}"></i>
       <div class="our-elements-item-info"><p>Hey, my name: ${element.first_name}<br>
       I am ${element.age} years old<br>My breed is: ${element.breed}<br>
@@ -155,38 +156,38 @@ function generateHtml(elements, target) {
   });
 }
 
-generateHtml(description.dog, 'our-dogs'); 
+generateHtml(description.dog, "our-dogs");
 
-if(localStorage.getItem('fav-dogs')) {
-  favDogs = JSON.parse(localStorage.getItem('fav-dogs'));
-  generateHtml(favDogs, 'fav-dogs');
+if (localStorage.getItem("fav-dogs")) {
+  favDogs = JSON.parse(localStorage.getItem("fav-dogs"));
+  generateHtml(favDogs, "fav-dogs");
 }
 
-document.querySelectorAll('.dogs-list').forEach(function(dogsList) {
-  dogsList.addEventListener('click', function(el) {
-    if(hasClass(el.target, 'our-elements-item-info')) {
-      el.target.classList.toggle('active');
+document.querySelectorAll(".dogs-list").forEach(function (dogsList) {
+  dogsList.addEventListener("click", function (el) {
+    if (hasClass(el.target, "our-elements-item-info")) {
+      el.target.classList.toggle("active");
     }
-    
-    if(hasClass(el.target, 'toggle-fav-heart')) {
-      el.target.classList.toggle('fas');
-      let favDogId = el.target.getAttribute('attr-fav');
-      let index = favDogs.findIndex(x => x.id == favDogId);
-      if(index == -1) {
-        favDogs.push(description.dog.find(x => x.id == favDogId))
+
+    if (hasClass(el.target, "toggle-fav-heart")) {
+      el.target.classList.toggle("fas");
+      let favDogId = el.target.getAttribute("attr-fav");
+      let index = favDogs.findIndex((x) => x.id == favDogId);
+      if (index == -1) {
+        favDogs.push(description.dog.find((x) => x.id == favDogId));
       } else {
         favDogs.splice(index, 1);
       }
-      document.getElementById('fav-dogs').innerHTML = '';
-      generateHtml(favDogs, 'fav-dogs');
-      localStorage.setItem('fav-dogs', JSON.stringify(favDogs));
+      document.getElementById("fav-dogs").innerHTML = "";
+      generateHtml(favDogs, "fav-dogs");
+      localStorage.setItem("fav-dogs", JSON.stringify(favDogs));
     }
 
-    if(hasClass(el.target, 'our-elements-item-info')) {
-      console.log('toggleInfo');
+    if (hasClass(el.target, "our-elements-item-info")) {
+      console.log("toggleInfo");
     }
   });
-})
+});
 
 // Function to load data from LocalStorage (if you like a dog)
 
@@ -197,7 +198,7 @@ if (saved) {
 }
 
 function hasClass(element, className) {
-  return element.className.split(' ').indexOf(className) > -1;
+  return element.className.split(" ").indexOf(className) > -1;
 }
 
 // SHOW / HIDE PICTURE INFO
@@ -207,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (let i = 0; i < picDesc.length; i++) {
     picDesc[i].addEventListener("click", showDescription);
-    heart[i].addEventListener("click", function(el) {
+    heart[i].addEventListener("click", function (el) {
       yourDogs;
       love(el);
     });
@@ -292,7 +293,6 @@ function showIt() {
     buttonFavs.innerHTML = "Show my favourite dogs";
   }
 }
-
 
 // Function to load favourite dogs data from LocalStorage
 
