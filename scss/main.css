@@ -410,8 +410,8 @@ body {
   margin-bottom: 0.5rem;
 }
 
-#our-dogs .our-dogs-item,
-#your-dogs .our-dogs-item {
+#our-dogs .our-elements-item,
+#your-dogs .our-elements-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -425,16 +425,16 @@ body {
   margin: 0 auto;
 }
 
-#our-dogs .our-dogs-item img,
-#your-dogs .our-dogs-item img {
+#our-dogs .our-elements-item img,
+#your-dogs .our-elements-item img {
   width: 90%;
   margin: auto;
   margin-bottom: 1rem;
   z-index: 1;
 }
 
-#our-dogs .our-dogs-item .fa-heart,
-#your-dogs .our-dogs-item .fa-heart {
+#our-dogs .our-elements-item .fa-heart,
+#your-dogs .our-elements-item .fa-heart {
   position: absolute;
   top: 10px;
   right: 10%;
@@ -444,8 +444,8 @@ body {
   cursor: pointer;
 }
 
-#our-dogs .our-dogs-item .our-dogs-item-info,
-#your-dogs .our-dogs-item .our-dogs-item-info {
+#our-dogs .our-elements-item .our-elements-item-info,
+#your-dogs .our-elements-item .our-elements-item-info {
   position: absolute;
   line-height: 2rem;
   font-size: 1rem;
@@ -463,6 +463,18 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  z-index: 1;
+  opacity: 0;
+}
+
+#our-dogs .our-elements-item .our-elements-item-info p,
+#your-dogs .our-elements-item .our-elements-item-info p {
+  pointer-events: none;
+}
+
+#our-dogs .our-elements-item .our-elements-item-info.active,
+#your-dogs .our-elements-item .our-elements-item-info.active {
+  opacity: 1;
 }
 
 .separate {
@@ -535,7 +547,7 @@ body {
 
 #contact {
   padding: 15px;
-  background: url("/dist/img/main-medium.jpg") center center/cover;
+  background: url("../img/main-medium.jpg") center center/cover;
   color: #fafafa;
   text-align: center;
 }
@@ -738,6 +750,24 @@ body {
   color: #f18d68;
 }
 
+#our-dogs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#our-dogs .small-title {
+  width: 100%;
+}
+
+#our-dogs .our-elements-item {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 0;
+}
+
 .separate {
   background: #fafafa;
 }
@@ -766,24 +796,5 @@ body {
 #myBtn:active,
 #myBtn:focus {
   background: #7d6fd8;
-}
-
-.our-elements-item {
-  position: relative;
-}
-
-.our-elements-item-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
-}
-
-.our-elements-item-info.active {
-  opacity: 1;
 }
 /*# sourceMappingURL=main.css.map */

@@ -107,7 +107,7 @@
 
 @media only screen and (min-width: 1200px) {
   html {
-    background: url("./img/bg-main.jpg") no-repeat center center fixed;
+    background: url("../img/bg-main.jpg") no-repeat center center fixed;
   }
 }
 
@@ -128,6 +128,19 @@
   }
 }
 
+#our-dogs {
+  display: flex;
+  flex-wrap: wrap;
+
+  .small-title {
+    width: 100%;
+  }
+
+  .our-elements-item {
+    align-self: flex-start;
+    margin-left: 0;
+  }
+}
 .separate {
   background: $whitey;
 }

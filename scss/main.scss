@@ -260,7 +260,7 @@ body {
     margin-bottom: 0.5rem;
   }
 
-  .our-dogs-item {
+  .our-elements-item {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -285,7 +285,7 @@ body {
       cursor: pointer;
     }
 
-    .our-dogs-item-info {
+    .our-elements-item-info {
       position: absolute;
       line-height: 2rem;
       font-size: 1rem;
@@ -300,6 +300,16 @@ body {
       text-align: center;
       padding-top: 15%;
       user-select: none;
+      z-index: 1;
+      opacity: 0;
+
+      p {
+        pointer-events: none;
+      }
+
+      &.active {
+        opacity: 1;
+      }
     }
   }
 }
@@ -362,7 +372,7 @@ body {
 
 #contact {
   padding: 15px;
-  background: url("/dist/img/main-medium.jpg") center center/cover;
+  background: url("../img/main-medium.jpg") center center/cover;
   color: $whitey;
   text-align: center;
 
@@ -448,20 +458,21 @@ body {
 
 // code to remove
 
-.our-elements-item {
-  position: relative;
-}
+// .our-elements-item {
+//   position: relative;
+// }
 
-.our-elements-item-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
+// .our-elements-item-info {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   opacity: 0;
+//   z-index: 1;
+//   transition: opacity 0.2s ease;
+// }
 
-.our-elements-item-info.active {
-  opacity: 1;
-}
+// .our-elements-item-info.active {
+//   opacity: 1;
+// }

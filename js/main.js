@@ -76,13 +76,14 @@ const description = {
       cost: "500$",
       picture: "1.jpg",
     },
+
     {
       id: 1,
-      first_name: "Lindsay",
-      breed: "Maltese",
-      age: 4,
-      cost: "700$",
-      picture: "2.jpg",
+      first_name: "Bobby",
+      breed: "Unknown",
+      age: "0.2",
+      cost: "1200$",
+      picture: "8.jpg",
     },
     {
       id: 2,
@@ -126,11 +127,11 @@ const description = {
     },
     {
       id: 7,
-      first_name: "Bobby",
-      breed: "Unknown",
-      age: "0.2",
-      cost: "1200$",
-      picture: "8.jpg",
+      first_name: "Lindsay",
+      breed: "Maltese",
+      age: 4,
+      cost: "700$",
+      picture: "2.jpg",
     },
     {
       id: 8,
@@ -202,41 +203,41 @@ function hasClass(element, className) {
 }
 
 // SHOW / HIDE PICTURE INFO
-document.addEventListener("DOMContentLoaded", function () {
-  let picDesc = document.getElementsByClassName("our-dogs-item");
-  let heart = document.getElementsByClassName("fa-heart");
+// document.addEventListener("DOMContentLoaded", function () {
+//   let picDesc = document.getElementsByClassName("our-elements-item");
+//   let heart = document.getElementsByClassName("fa-heart");
 
-  for (let i = 0; i < picDesc.length; i++) {
-    picDesc[i].addEventListener("click", showDescription);
-    heart[i].addEventListener("click", function (el) {
-      yourDogs;
-      love(el);
-    });
-  }
-});
+//   for (let i = 0; i < picDesc.length; i++) {
+//     // picDesc[i].addEventListener("click", showDescription);
+//     heart[i].addEventListener("click", function (el) {
+//       yourDogs;
+//       love(el);
+//     });
+//   }
+// });
 
-function showDescription() {
-  if (this.firstChild.style.zIndex === "") {
-    this.firstChild.style.zIndex = "0";
-  } else if (this.firstChild.style.zIndex === "1") {
-    this.firstChild.style.zIndex = "0";
-  } else {
-    this.firstChild.style.zIndex = "1";
-  }
-}
+// function showDescription() {
+//   if (this.firstChild.style.zIndex === "") {
+//     this.firstChild.style.zIndex = "0";
+//   } else if (this.firstChild.style.zIndex === "1") {
+//     this.firstChild.style.zIndex = "0";
+//   } else {
+//     this.firstChild.style.zIndex = "1";
+//   }
+// }
 
 // Tick heart icon (add to favourites)
-function love(e) {
-  const likes = document.querySelector("#our-dogs");
-  el = e.target;
-  if (el.classList.contains("far")) {
-    el.classList.replace("far", "fas");
-    e.stopPropagation();
-  } else {
-    el.classList.replace("fas", "far");
-    e.stopPropagation();
-  }
-}
+// function love(e) {
+//   const likes = document.querySelector("#our-dogs");
+//   el = e.target;
+//   if (el.classList.contains("far")) {
+//     el.classList.replace("far", "fas");
+//     e.stopPropagation();
+//   } else {
+//     el.classList.replace("fas", "far");
+//     e.stopPropagation();
+//   }
+// }
 
 //on start, hide dogs Info if was saved in local storage
 let hideInfo = document.getElementsByClassName("our-dogs-item");
